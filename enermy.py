@@ -1,0 +1,2 @@
+class Enermy:
+    pass
