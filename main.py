@@ -10,5 +10,4 @@ small_red = enemy.SmallRed()
 battle = event.Battle([jibao], [small_red])
 
 draw(battle)
-battle.players[0].cards[0].use(battle, 0)
-draw(battle)
+battle.start()
