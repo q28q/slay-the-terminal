@@ -1,2 +1,2 @@
-class broken_robot:
+class BrokenRobot:
     pass
