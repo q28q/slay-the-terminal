@@ -1,21 +1,35 @@
+from typing import List
 import card
 
-class Player:
-    def __init__(self):
-        self.name = ''
+class Character:
+    name: str
+    max_health: int
+    health: int
+    card_suite: List[card.CardBase]
+
+    def __init__(
+        self,
+        name: str,
+        max_health: int = 80,
+        init_health: int = None,
+        card_suite: List[card.CardBase] = [],
+    ):
+        self.name = name
+        self.armor = 0
         self.max_health = 80
-        self.health = 80
-        self.armour = 0
-        self.cards = []
+        self.health = init_health if init_health is not None else max_health
+        self.card_suite = card_suite
         self.potions = []
-        self.buffs = []
 
-class BrokenRobot(Player):
+class BrokenRobot(Character):
     def __init__(self):
-        super().__init__()
-        self.name = '故障机器人'
+        card_suite = [
+            card.Hit(),
+            card.Defence(),
+        ]
 
-        hit_card = card.Hit()
-        self.cards.append(hit_card)
-        defence_card = card.Defence()
-        self.cards.append(defence_card)
+        super().__init__(
+            name='故障机器人',
+            card_suite=card_suite,
+        )
+
